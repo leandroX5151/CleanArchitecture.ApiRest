@@ -1,7 +1,7 @@
 ﻿using CleanArchitecture.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace CleanArchitecture.Data
+namespace CleanArchitecture.Infraestructure
 {
     public class StreamerDbContext : DbContext
     {
@@ -11,7 +11,6 @@ namespace CleanArchitecture.Data
             .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, Microsoft.Extensions.Logging.LogLevel.Information)
             .EnableSensitiveDataLogging();
         }
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,8 +29,6 @@ namespace CleanArchitecture.Data
                 .UsingEntity<VideoActor>(
                     pt => pt.HasKey(e => new { e.ActorId, e.VideoId })
                 );
-
-        
         }
 
 
