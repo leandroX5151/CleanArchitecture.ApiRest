@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using CleanArchitecture.Application.Contracts.Persistence;
 using CleanArchitecture.Application.Exceptions;
 using CleanArchitecture.Domain;
@@ -29,7 +24,7 @@ namespace CleanArchitecture.Application.Features.Streamers.Commands.DeleteStream
         {
             var streamerToDelete = await _streamerRepository.GetByIdAsync(request.Id);
 
-            if (streamerToDelete != null)
+            if (streamerToDelete == null)
             {
                 _logger.LogError($"{request.Id} streamer no existe en el sistema");
 
