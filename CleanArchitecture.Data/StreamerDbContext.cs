@@ -7,7 +7,7 @@ namespace CleanArchitecture.Infraestructure
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=DATA_BASE_SERVER_NAME;Initial Catalog=CATALOG_NAME;")
+            optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-9UHB9NMS\SQLEXPRESS;Initial Catalog=Streamer;Integrated Security=True;TrustServerCertificate=true")
             .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, Microsoft.Extensions.Logging.LogLevel.Information)
             .EnableSensitiveDataLogging();
         }
